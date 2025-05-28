@@ -19,5 +19,9 @@ public enum Permission {
     DELETE_ONE_USER,
     UPDATE_ONE_USER,
     UPDATE_USER_PASSWORD,
-    GENERATE_VERIFICATION_CODE;
+    GENERATE_VERIFICATION_CODE,
+
+    //* Category permissions
+    READ_ALL_CATEGORIES,
+    FIND_CATEGORY;
 }

@@ -57,6 +57,9 @@ public class HttpSecurityConfig {
                     authConfig.requestMatchers(HttpMethod.POST, "/users/api/generate-password-recovery-code").hasAuthority(Permission.GENERATE_VERIFICATION_CODE.name());
                     authConfig.requestMatchers(HttpMethod.PUT, "/users/api/change-password").hasAuthority(Permission.UPDATE_USER_PASSWORD.name());
 
+                    // ? Category controller
+                    authConfig.requestMatchers(HttpMethod.GET, "/categories/api/list-categories").hasAuthority(Permission.READ_ALL_CATEGORIES.name());
+                    authConfig.requestMatchers(HttpMethod.GET, "/categories/api/category/{id}").hasAuthority(Permission.FIND_CATEGORY.name());
 
                     // * Any request deny all
                     authConfig.anyRequest().denyAll();

@@ -23,7 +23,11 @@ public enum Role {
             Permission.DELETE_ONE_USER,
             Permission.UPDATE_ONE_USER,
             Permission.UPDATE_USER_PASSWORD,
-            Permission.GENERATE_VERIFICATION_CODE
+            Permission.GENERATE_VERIFICATION_CODE,
+
+            //* Category permissions
+            Permission.READ_ALL_CATEGORIES,
+            Permission.FIND_CATEGORY
     )),
     CUSTOMER(Arrays.asList(
             // * Products permissions
@@ -33,7 +37,11 @@ public enum Role {
 
             // * User permissions
             Permission.UPDATE_USER_PASSWORD,
-            Permission.GENERATE_VERIFICATION_CODE
+            Permission.GENERATE_VERIFICATION_CODE,
+
+            //* Category permissions
+            Permission.READ_ALL_CATEGORIES,
+            Permission.FIND_CATEGORY
     )),
     VENDOR(Arrays.asList(
             // * Products permissions
@@ -43,11 +51,19 @@ public enum Role {
             // * User permissions
             Permission.FIND_USER_BY_EMAIL,
             Permission.UPDATE_USER_PASSWORD,
-            Permission.GENERATE_VERIFICATION_CODE
+            Permission.GENERATE_VERIFICATION_CODE,
+
+            //* Category permissions
+            Permission.READ_ALL_CATEGORIES,
+            Permission.FIND_CATEGORY
     )),
     VISITOR(Arrays.asList(
             // * Products permissions
-            Permission.READ_ALL_PRODUCTS
+            Permission.READ_ALL_PRODUCTS,
+
+            //* Category permissions
+            Permission.READ_ALL_CATEGORIES,
+            Permission.FIND_CATEGORY
     ));
 
     private List<Permission> permissions;

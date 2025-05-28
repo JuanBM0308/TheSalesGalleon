@@ -1,6 +1,6 @@
 package com.juanba.the_sales_galleon.product.dto;
 
-import com.juanba.the_sales_galleon.category.ProductCategory;
+import com.juanba.the_sales_galleon.category.util.ProductCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

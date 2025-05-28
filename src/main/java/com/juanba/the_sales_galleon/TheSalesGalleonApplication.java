@@ -1,5 +1,7 @@
 package com.juanba.the_sales_galleon;
 
+import com.juanba.the_sales_galleon.category.entity.Category;
+import com.juanba.the_sales_galleon.category.util.ProductCategory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,6 +15,6 @@ public class TheSalesGalleonApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("\n¡Bienvenido a the sales galleon desarrollador!");
+		System.out.println("\nWelcome to the sales galleon developer!\n");
 	}
 }

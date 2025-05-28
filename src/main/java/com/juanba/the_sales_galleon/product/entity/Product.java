@@ -1,6 +1,6 @@
 package com.juanba.the_sales_galleon.product.entity;
 
-import com.juanba.the_sales_galleon.category.ProductCategory;
+import com.juanba.the_sales_galleon.category.util.ProductCategory;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
