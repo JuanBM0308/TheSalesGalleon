@@ -1,9 +1,10 @@
 package com.juanba.the_sales_galleon.user.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.juanba.the_sales_galleon.authentication.util.Role;
+import com.juanba.the_sales_galleon.product.entity.Product;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -71,6 +72,11 @@ public class User implements UserDetails {
     @NotNull
     @Column(name = "is_active_us")
     private Boolean isActive;
+
+    // * Relacion de Usuarios a Productos
+    @JsonIgnore
+    @OneToMany(targetEntity = Product.class, fetch = FetchType.LAZY, mappedBy = "vendor")
+    private List<Product> products;
 
     // * Make our authorities understand spring
     @Override

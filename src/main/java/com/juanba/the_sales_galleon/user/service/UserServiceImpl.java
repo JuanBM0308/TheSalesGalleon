@@ -52,6 +52,8 @@ public class UserServiceImpl {
                     .phoneNumber(user.get().getPhoneNumber())
                     .address(user.get().getAddress())
                     .email(user.get().getEmail())
+                    .role(user.get().getRole())
+                    .total_purchases(user.get().getTotal_purchases())
                     .isActive(user.get().getIsActive())
                     .build();
 

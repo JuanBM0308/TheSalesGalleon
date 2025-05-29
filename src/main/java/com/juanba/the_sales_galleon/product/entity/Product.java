@@ -1,6 +1,8 @@
 package com.juanba.the_sales_galleon.product.entity;
 
-import com.juanba.the_sales_galleon.category.util.ProductCategory;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.juanba.the_sales_galleon.category.entity.Category;
+import com.juanba.the_sales_galleon.user.entity.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
@@ -32,15 +34,15 @@ public class Product {
     @Column(name = "description_pro", columnDefinition = "TEXT")
     private String description;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "category_pro")
-    private ProductCategory category;
+    // * Realcion de Productos a Categorias
+    @ManyToOne(targetEntity = Category.class)
+    @JoinColumn(name = "category_pro")
+    private Category category;
 
     @NotNull
     @DecimalMin(value = "0.01")
     @Column(name = "price_pro")
     private BigDecimal price;
-
 
     @Column(name = "stock_pro")
     private Long stock;
@@ -60,4 +62,9 @@ public class Product {
     @NotNull
     @Column(name = "isActive_pro")
     private Boolean isActive;
+
+    // * Relacion de Productos a Usuarios
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(name = "id_vendor_pro")
+    private User vendor;
 }

@@ -1,6 +1,6 @@
 package com.juanba.the_sales_galleon.product.dto;
 
-import com.juanba.the_sales_galleon.category.util.ProductCategory;
+import com.juanba.the_sales_galleon.category.entity.Category;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +16,7 @@ public class ProductDto {
     private Long id;
     private String name;
     private String description;
-    private ProductCategory category;
+    private Long category;
     private BigDecimal price;
     private Long stock;
     private String image;
@@ -24,4 +24,5 @@ public class ProductDto {
     private String color;
     private Boolean isNew;
     private Boolean isActive;
+    private Long vendor;
 }
