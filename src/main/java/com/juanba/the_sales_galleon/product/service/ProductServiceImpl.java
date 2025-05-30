@@ -77,6 +77,24 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
+    public ResponseEntity<?> findByCategory(Long id) {
+        try {
+            Optional<Category> categoryOptional = categoryRepository.findById(id);
+            if (categoryOptional.isEmpty()) {
+                return new ResponseEntity<>(new ResponseDto(false, "Non-existent product category ❌", null), HttpStatus.NOT_FOUND);
+            }
+
+            List<Product> products = productRepository.findByCategory(categoryOptional.get());
+            List<ProductDto> productDtos = products.stream()
+                    .map(this::convertToDto)
+                    .collect(Collectors.toList());
+
+            return new ResponseEntity<>(new ResponseDto(true, "Products successfully recovered.", productDtos), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(new ResponseDto(false, "Internal server error 😖", null), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     public ResponseEntity<?> create(ProductDto productDto) {
         try {
             Optional<Category> categoryOptional = categoryRepository.findById(productDto.getCategory());

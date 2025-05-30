@@ -41,6 +41,7 @@ public class HttpSecurityConfig {
                     authConfig.requestMatchers(HttpMethod.GET, "/products/api/list-products").hasAuthority(Permission.READ_ALL_PRODUCTS.name());
                     authConfig.requestMatchers(HttpMethod.GET, "/products/api/find-product/{id}").hasAuthority(Permission.FIND_PRODUCT.name());
                     authConfig.requestMatchers(HttpMethod.GET, "/products/api/active-products").hasAuthority(Permission.READ_ALL_PRODUCTS.name());
+                    authConfig.requestMatchers(HttpMethod.GET, "/products/api/list-products/{category}").hasAuthority(Permission.FIND_PRODUCT.name());
                     authConfig.requestMatchers(HttpMethod.POST, "/products/api/create").hasAuthority(Permission.SAVE_ONE_PRODUCT.name());
                     authConfig.requestMatchers(HttpMethod.DELETE, "/products/api/delete/{id}").hasAuthority(Permission.DELETE_ONE_PRODUCT.name());
                     authConfig.requestMatchers(HttpMethod.PUT, "/products/api/update").hasAuthority(Permission.UPDATE_ONE_PRODUCT.name());

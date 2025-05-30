@@ -8,38 +8,43 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/products/api")
 public class ProductController {
 
     @Autowired
     private ProductServiceImpl productService;
 
-    @GetMapping("/api/list-products")
+    @GetMapping("/list-products")
     public ResponseEntity<?> getAll() {
         return productService.getAll();
     }
 
-    @GetMapping("/api/find-product/{id}")
+    @GetMapping("/find-product/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
         return productService.findById(id);
     }
 
-    @GetMapping("/api/active-products")
+    @GetMapping("/active-products")
     public ResponseEntity<?> getActiveProducts() {
         return productService.findByActive();
     }
 
-    @PostMapping("/api/create")
+    @GetMapping("/list-products/{category}")
+    public ResponseEntity<?> findByCategory(@PathVariable Long category) {
+        return productService.findByCategory(category);
+    }
+
+    @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody @Valid ProductDto productDto) {
         return productService.create(productDto);
     }
 
-    @DeleteMapping("/api/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         return productService.delete(id);
     }
 
-    @PutMapping("/api/update")
+    @PutMapping("/update")
     public ResponseEntity<?> update(@RequestBody @Valid ProductDto productDto) {
         return productService.update(productDto);
     }
