@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("/categories/api")
 public class CategoryController {
 
     @Autowired
     CategoryServiceImpl categoryService;
 
-    @GetMapping("/api/list-categories")
+    @GetMapping("/list-categories")
     public ResponseEntity<?> getAll() {
         return categoryService.getAll();
     }
 
-    @GetMapping("/api/category/{id}")
+    @GetMapping("/category/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
         return categoryService.findById(id);
     }

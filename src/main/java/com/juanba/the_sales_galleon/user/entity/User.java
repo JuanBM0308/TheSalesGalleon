@@ -3,6 +3,7 @@ package com.juanba.the_sales_galleon.user.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.juanba.the_sales_galleon.authentication.util.Role;
 import com.juanba.the_sales_galleon.product.entity.Product;
+import com.juanba.the_sales_galleon.vendor.rating.entity.VendorRating;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -73,10 +74,20 @@ public class User implements UserDetails {
     @Column(name = "is_active_us")
     private Boolean isActive;
 
-    // * Relacion de Usuarios a Productos
+    // * Relacion de User a Product
     @JsonIgnore
     @OneToMany(targetEntity = Product.class, fetch = FetchType.LAZY, mappedBy = "vendor")
     private List<Product> products;
+
+    // *Relacion de User a VendorRating (customer)
+    @JsonIgnore
+    @OneToMany(targetEntity = VendorRating.class, fetch = FetchType.LAZY, mappedBy = "customer")
+    private List<VendorRating> ratingsCustomer;
+
+    // *Relacion de User a VendorRating (vendor)
+    @JsonIgnore
+    @OneToMany(targetEntity = VendorRating.class, fetch = FetchType.LAZY, mappedBy = "vendor")
+    private List<VendorRating> ratingsVendor;
 
     // * Make our authorities understand spring
     @Override

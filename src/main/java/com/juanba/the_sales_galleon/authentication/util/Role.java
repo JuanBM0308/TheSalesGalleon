@@ -27,7 +27,11 @@ public enum Role {
 
             //* Category permissions
             Permission.READ_ALL_CATEGORIES,
-            Permission.FIND_CATEGORY
+            Permission.FIND_CATEGORY,
+
+            // * VendorRating permissions
+            Permission.FIND_RATING_VENDOR,
+            Permission.CREATE_ONE_RATING_VENDOR
     )),
     CUSTOMER(Arrays.asList(
             // * Products permissions
@@ -41,7 +45,11 @@ public enum Role {
 
             //* Category permissions
             Permission.READ_ALL_CATEGORIES,
-            Permission.FIND_CATEGORY
+            Permission.FIND_CATEGORY,
+
+            // * VendorRating permissions
+            Permission.FIND_RATING_VENDOR,
+            Permission.CREATE_ONE_RATING_VENDOR
     )),
     VENDOR(Arrays.asList(
             // * Products permissions
@@ -55,7 +63,11 @@ public enum Role {
 
             //* Category permissions
             Permission.READ_ALL_CATEGORIES,
-            Permission.FIND_CATEGORY
+            Permission.FIND_CATEGORY,
+
+            // * VendorRating permissions
+            Permission.FIND_RATING_VENDOR,
+            Permission.CREATE_ONE_RATING_VENDOR
     )),
     VISITOR(Arrays.asList(
             // * Products permissions
@@ -63,7 +75,11 @@ public enum Role {
 
             //* Category permissions
             Permission.READ_ALL_CATEGORIES,
-            Permission.FIND_CATEGORY
+            Permission.FIND_CATEGORY,
+
+            // * VendorRating permissions
+            Permission.FIND_RATING_VENDOR,
+            Permission.CREATE_ONE_RATING_VENDOR
     ));
 
     private List<Permission> permissions;

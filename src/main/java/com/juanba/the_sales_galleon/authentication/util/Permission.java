@@ -23,5 +23,9 @@ public enum Permission {
 
     //* Category permissions
     READ_ALL_CATEGORIES,
-    FIND_CATEGORY;
+    FIND_CATEGORY,
+
+    // * VendorRating permissions
+    FIND_RATING_VENDOR,
+    CREATE_ONE_RATING_VENDOR;
 }

@@ -34,7 +34,7 @@ public class Product {
     @Column(name = "description_pro", columnDefinition = "TEXT")
     private String description;
 
-    // * Realcion de Productos a Categorias
+    // * Realacion de Product a Category
     @ManyToOne(targetEntity = Category.class)
     @JoinColumn(name = "category_pro")
     private Category category;
@@ -63,7 +63,7 @@ public class Product {
     @Column(name = "isActive_pro")
     private Boolean isActive;
 
-    // * Relacion de Productos a Usuarios
+    // * Relacion de Product a User
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "id_vendor_pro")
     private User vendor;

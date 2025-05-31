@@ -1,6 +1,7 @@
 package com.juanba.the_sales_galleon.config.security;
 
 import com.juanba.the_sales_galleon.authentication.util.Permission;
+import com.juanba.the_sales_galleon.authentication.util.Role;
 import com.juanba.the_sales_galleon.config.security.filter.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -61,6 +62,10 @@ public class HttpSecurityConfig {
                     // ? Category controller
                     authConfig.requestMatchers(HttpMethod.GET, "/categories/api/list-categories").hasAuthority(Permission.READ_ALL_CATEGORIES.name());
                     authConfig.requestMatchers(HttpMethod.GET, "/categories/api/category/{id}").hasAuthority(Permission.FIND_CATEGORY.name());
+
+                    // ? VendorRating controller
+                    authConfig.requestMatchers(HttpMethod.GET, "/vendor-ratings/api/find-vendor/{id}").hasAuthority(Permission.FIND_RATING_VENDOR.name());
+                    authConfig.requestMatchers(HttpMethod.POST, "/vendor-ratings/api/create").hasAuthority(Permission.CREATE_ONE_RATING_VENDOR.name());
 
                     // * Any request deny all
                     authConfig.anyRequest().denyAll();
