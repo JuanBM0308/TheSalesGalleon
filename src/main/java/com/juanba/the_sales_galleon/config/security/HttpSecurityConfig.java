@@ -66,6 +66,7 @@ public class HttpSecurityConfig {
                     // ? VendorRating controller
                     authConfig.requestMatchers(HttpMethod.GET, "/vendor-ratings/api/find-vendor/{id}").hasAuthority(Permission.FIND_RATING_VENDOR.name());
                     authConfig.requestMatchers(HttpMethod.POST, "/vendor-ratings/api/create").hasAuthority(Permission.CREATE_ONE_RATING_VENDOR.name());
+                    authConfig.requestMatchers(HttpMethod.DELETE, "/vendor-ratings/api/delete/{id}").hasAuthority(Permission.DELETE_ONE_RATING.name());
 
                     // * Any request deny all
                     authConfig.anyRequest().denyAll();

@@ -27,5 +27,6 @@ public enum Permission {
 
     // * VendorRating permissions
     FIND_RATING_VENDOR,
-    CREATE_ONE_RATING_VENDOR;
+    CREATE_ONE_RATING_VENDOR,
+    DELETE_ONE_RATING;
 }

@@ -22,4 +22,9 @@ public class VendorRatingController {
     public ResponseEntity<?> create(@RequestBody VendorRatingDto vendorRatingDto) {
         return vendorRatingService.create(vendorRatingDto);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        return vendorRatingService.delete(id);
+    }
 }

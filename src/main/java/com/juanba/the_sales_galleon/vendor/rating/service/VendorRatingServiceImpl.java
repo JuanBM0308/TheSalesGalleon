@@ -15,6 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+
 public class VendorRatingServiceImpl {
 
     @Autowired
@@ -44,7 +45,7 @@ public class VendorRatingServiceImpl {
     public ResponseEntity<?> create(VendorRatingDto vendorRatingDto) {
         try {
             Optional<User> vendor = userRepository.findById(vendorRatingDto.getVendor());
-            if (vendor.isEmpty()) {
+            if (vendor.isEmpty() || !vendor.get().getRole().name().equals("VENDOR")) {
                 return ResponseEntity.status(404).body("Vendor not found 👤.");
             }
 
@@ -53,18 +54,35 @@ public class VendorRatingServiceImpl {
                 return ResponseEntity.status(404).body("Customer not found 👤.");
             }
 
-            VendorRating vendorRating = VendorRating.builder()
-                    .id(vendorRatingDto.getId())
-                    .vendor(vendor.get())
-                    .rating(vendorRatingDto.getRating())
-                    .comment(vendorRatingDto.getComment())
-                    .valuationDate(vendorRatingDto.getValuationDate())
-                    .customer(customer.get())
-                    .build();
+            if (vendorRatingDto.getRating() > 0 && vendorRatingDto.getRating() <= 5.0) {
+                VendorRating vendorRating = VendorRating.builder()
+                        .id(vendorRatingDto.getId())
+                        .vendor(vendor.get())
+                        .rating(vendorRatingDto.getRating())
+                        .comment(vendorRatingDto.getComment())
+                        .valuationDate(vendorRatingDto.getValuationDate())
+                        .customer(customer.get())
+                        .build();
 
-            vendorRatingRepository.save(vendorRating);
+                vendorRatingRepository.save(vendorRating);
 
-            return ResponseEntity.status(201).body(convertToDto(vendorRating));
+                return ResponseEntity.status(201).body(convertToDto(vendorRating));
+            }
+
+            return ResponseEntity.status(406).body("Minimum rating 1.0 and maximum rating 5.0 😣.");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Ups! Internal server error 😣.");
+        }
+    }
+
+    public ResponseEntity<?> delete(Long id) {
+        try {
+            if (vendorRatingRepository.existsById(id)) {
+                return ResponseEntity.status(404).body("Rating not found 👤.");
+            }
+
+            vendorRatingRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Ups! Internal server error 😣.");
         }

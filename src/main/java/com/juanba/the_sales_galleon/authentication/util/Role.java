@@ -31,7 +31,8 @@ public enum Role {
 
             // * VendorRating permissions
             Permission.FIND_RATING_VENDOR,
-            Permission.CREATE_ONE_RATING_VENDOR
+            Permission.CREATE_ONE_RATING_VENDOR,
+            Permission.DELETE_ONE_RATING
     )),
     CUSTOMER(Arrays.asList(
             // * Products permissions
@@ -67,7 +68,8 @@ public enum Role {
 
             // * VendorRating permissions
             Permission.FIND_RATING_VENDOR,
-            Permission.CREATE_ONE_RATING_VENDOR
+            Permission.CREATE_ONE_RATING_VENDOR,
+            Permission.DELETE_ONE_RATING
     )),
     VISITOR(Arrays.asList(
             // * Products permissions
