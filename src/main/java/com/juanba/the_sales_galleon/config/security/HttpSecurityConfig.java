@@ -64,9 +64,14 @@ public class HttpSecurityConfig {
                     authConfig.requestMatchers(HttpMethod.GET, "/categories/api/category/{id}").hasAuthority(Permission.FIND_CATEGORY.name());
 
                     // ? VendorRating controller
-                    authConfig.requestMatchers(HttpMethod.GET, "/vendor-ratings/api/find-vendor/{id}").hasAuthority(Permission.FIND_RATING_VENDOR.name());
-                    authConfig.requestMatchers(HttpMethod.POST, "/vendor-ratings/api/create").hasAuthority(Permission.CREATE_ONE_RATING_VENDOR.name());
-                    authConfig.requestMatchers(HttpMethod.DELETE, "/vendor-ratings/api/delete/{id}").hasAuthority(Permission.DELETE_ONE_RATING.name());
+                    authConfig.requestMatchers(HttpMethod.GET, "/vendors-ratings/api/find-vendor/{id}").hasAuthority(Permission.FIND_RATING_VENDOR.name());
+                    authConfig.requestMatchers(HttpMethod.POST, "/vendors-ratings/api/create").hasAuthority(Permission.CREATE_ONE_RATING_VENDOR.name());
+                    authConfig.requestMatchers(HttpMethod.DELETE, "/vendors-ratings/api/delete/{id}").hasAuthority(Permission.DELETE_ONE_RATING.name());
+
+                    // ? ProductRating controller
+                    authConfig.requestMatchers(HttpMethod.GET, "/products-ratings/api/find-product/{id}").hasAnyRole(Role.ADMINISTRATOR.name(), Role.VENDOR.name(), Role.CUSTOMER.name(), Role.VISITOR.name());
+                    authConfig.requestMatchers(HttpMethod.POST, "/products-ratings/api/create").hasAnyRole(Role.ADMINISTRATOR.name(), Role.VENDOR.name(), Role.CUSTOMER.name(), Role.VISITOR.name());
+                    authConfig.requestMatchers(HttpMethod.DELETE, "/products-ratings/api/delete/{id}").hasAnyRole(Role.ADMINISTRATOR.name(), Role.VENDOR.name(), Role.CUSTOMER.name(), Role.VISITOR.name());
 
                     // * Any request deny all
                     authConfig.anyRequest().denyAll();

@@ -1,13 +1,13 @@
-package com.juanba.the_sales_galleon.vendor.rating.controller;
+package com.juanba.the_sales_galleon.rating.vendor.controller;
 
-import com.juanba.the_sales_galleon.vendor.rating.dto.VendorRatingDto;
-import com.juanba.the_sales_galleon.vendor.rating.service.VendorRatingServiceImpl;
+import com.juanba.the_sales_galleon.rating.vendor.dto.VendorRatingDto;
+import com.juanba.the_sales_galleon.rating.vendor.service.VendorRatingServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/vendor-ratings/api")
+@RequestMapping("/vendors-ratings/api")
 public class VendorRatingController {
 
     @Autowired

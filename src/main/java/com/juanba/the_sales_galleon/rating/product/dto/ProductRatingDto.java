@@ -1,7 +1,5 @@
-package com.juanba.the_sales_galleon.vendor.rating.dto;
+package com.juanba.the_sales_galleon.rating.product.dto;
 
-import com.juanba.the_sales_galleon.user.entity.User;
-import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,11 +11,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class VendorRatingDto {
+public class ProductRatingDto {
     private Long id;
-    private Long vendor;
-    private Double rating;
+    private Long customer;
+    private Long product;
+    private Integer punctuation;
     private String comment;
     private LocalDate valuationDate;
-    private Long customer;
 }

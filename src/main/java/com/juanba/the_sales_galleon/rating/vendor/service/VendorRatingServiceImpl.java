@@ -1,14 +1,13 @@
-package com.juanba.the_sales_galleon.vendor.rating.service;
+package com.juanba.the_sales_galleon.rating.vendor.service;
 
 import com.juanba.the_sales_galleon.user.entity.User;
 import com.juanba.the_sales_galleon.user.repository.UserRepository;
-import com.juanba.the_sales_galleon.vendor.rating.dto.VendorRatingDto;
-import com.juanba.the_sales_galleon.vendor.rating.entity.VendorRating;
-import com.juanba.the_sales_galleon.vendor.rating.repository.VendorRatingRepository;
+import com.juanba.the_sales_galleon.rating.vendor.dto.VendorRatingDto;
+import com.juanba.the_sales_galleon.rating.vendor.entity.VendorRating;
+import com.juanba.the_sales_galleon.rating.vendor.repository.VendorRatingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;

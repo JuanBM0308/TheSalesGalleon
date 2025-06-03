@@ -1,7 +1,7 @@
-package com.juanba.the_sales_galleon.vendor.rating.repository;
+package com.juanba.the_sales_galleon.rating.vendor.repository;
 
 import com.juanba.the_sales_galleon.user.entity.User;
-import com.juanba.the_sales_galleon.vendor.rating.entity.VendorRating;
+import com.juanba.the_sales_galleon.rating.vendor.entity.VendorRating;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

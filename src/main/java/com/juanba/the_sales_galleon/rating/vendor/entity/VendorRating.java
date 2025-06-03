@@ -1,4 +1,4 @@
-package com.juanba.the_sales_galleon.vendor.rating.entity;
+package com.juanba.the_sales_galleon.rating.vendor.entity;
 
 import com.juanba.the_sales_galleon.user.entity.User;
 import jakarta.persistence.*;

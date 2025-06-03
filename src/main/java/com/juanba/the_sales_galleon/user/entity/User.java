@@ -3,7 +3,7 @@ package com.juanba.the_sales_galleon.user.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.juanba.the_sales_galleon.authentication.util.Role;
 import com.juanba.the_sales_galleon.product.entity.Product;
-import com.juanba.the_sales_galleon.vendor.rating.entity.VendorRating;
+import com.juanba.the_sales_galleon.rating.vendor.entity.VendorRating;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
