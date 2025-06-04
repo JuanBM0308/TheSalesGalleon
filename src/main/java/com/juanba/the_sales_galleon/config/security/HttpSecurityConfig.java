@@ -73,6 +73,15 @@ public class HttpSecurityConfig {
                     authConfig.requestMatchers(HttpMethod.POST, "/products-ratings/api/create").hasAnyRole(Role.ADMINISTRATOR.name(), Role.VENDOR.name(), Role.CUSTOMER.name(), Role.VISITOR.name());
                     authConfig.requestMatchers(HttpMethod.DELETE, "/products-ratings/api/delete/{id}").hasAnyRole(Role.ADMINISTRATOR.name(), Role.VENDOR.name(), Role.CUSTOMER.name(), Role.VISITOR.name());
 
+                    // ? PurchaseDetails controller
+                    authConfig.requestMatchers(HttpMethod.GET, "/purchase-details/api/find-purchase-details/{id}").hasAnyRole(Role.ADMINISTRATOR.name(), Role.CUSTOMER.name(), Role.VENDOR.name());
+                    authConfig.requestMatchers(HttpMethod.GET, "/purchase-details/api/find-by-order/{orderId}").hasAnyRole(Role.ADMINISTRATOR.name(), Role.CUSTOMER.name(), Role.VENDOR.name());
+                    authConfig.requestMatchers(HttpMethod.POST, "/purchase-details/api/create").hasAnyRole(Role.ADMINISTRATOR.name(), Role.CUSTOMER.name());
+                    authConfig.requestMatchers(HttpMethod.DELETE, "/purchase-details/api/delete/{id}").hasRole(Role.ADMINISTRATOR.name());
+                    authConfig.requestMatchers(HttpMethod.PUT, "/purchase-details/api/update").hasRole(Role.ADMINISTRATOR.name());
+
+
+
                     // * Any request deny all
                     authConfig.anyRequest().denyAll();
                 });

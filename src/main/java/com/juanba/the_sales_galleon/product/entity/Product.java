@@ -2,6 +2,7 @@ package com.juanba.the_sales_galleon.product.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.juanba.the_sales_galleon.category.entity.Category;
+import com.juanba.the_sales_galleon.purchase.details.entity.PurchaseDetails;
 import com.juanba.the_sales_galleon.user.entity.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
@@ -13,6 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -67,4 +69,9 @@ public class Product {
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "id_vendor_pro")
     private User vendor;
+
+    // * Relacion de Product a PurchaseDetails
+    @JsonIgnore
+    @OneToMany(targetEntity = PurchaseDetails.class, fetch = FetchType.LAZY, mappedBy = "product")
+    private List<PurchaseDetails> purchaseDetails;
 }

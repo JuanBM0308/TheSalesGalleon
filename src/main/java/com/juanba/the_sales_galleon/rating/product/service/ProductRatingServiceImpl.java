@@ -48,27 +48,31 @@ public class ProductRatingServiceImpl {
 
     public ResponseEntity<?> create(ProductRatingDto productRatingDto) {
         try {
-            Optional<Product> product = productRepository.findById(productRatingDto.getId());
+             Optional<Product> product = productRepository.findById(productRatingDto.getId());
             if (product.isEmpty()) {
                 return ResponseEntity.status(404).body("Product not found 📦.");
             }
 
             Optional<User> customer = userRepository.findById(productRatingDto.getCustomer());
-            if (customer.isEmpty()) {
+            if (customer.isEmpty() || !customer.get().getRole().name().equals("CUSTOMER")) {
                 return ResponseEntity.status(404).body("Customer not found 👤.");
             }
 
-            ProductRating productRating = ProductRating.builder()
-                    .id(productRatingDto.getId())
-                    .customer(customer.get())
-                    .product(product.get())
-                    .punctuation(productRatingDto.getPunctuation())
-                    .comment(productRatingDto.getComment())
-                    .valuationDate(productRatingDto.getValuationDate())
-                    .build();
+            if (productRatingDto.getPunctuation() > 0 && productRatingDto.getPunctuation() <= 5) {
+                ProductRating productRating = ProductRating.builder()
+                        .id(productRatingDto.getId())
+                        .customer(customer.get())
+                        .product(product.get())
+                        .punctuation(productRatingDto.getPunctuation())
+                        .comment(productRatingDto.getComment())
+                        .valuationDate(productRatingDto.getValuationDate())
+                        .build();
 
-            productRatingRepository.save(productRating);
-            return ResponseEntity.status(201).body(convertToDto(productRating));
+                productRatingRepository.save(productRating);
+                return ResponseEntity.status(201).body(convertToDto(productRating));
+            }
+
+            return ResponseEntity.status(406).body("Minimum punctuation 1 and maximum punctuation 5 🙂.");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Ups! Internal server error 🤯.");
         }
