@@ -3,6 +3,7 @@ package com.juanba.the_sales_galleon.user.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.juanba.the_sales_galleon.authentication.util.Role;
 import com.juanba.the_sales_galleon.product.entity.Product;
+import com.juanba.the_sales_galleon.purchase.order.entity.PurchaseOrder;
 import com.juanba.the_sales_galleon.rating.vendor.entity.VendorRating;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -84,10 +85,15 @@ public class User implements UserDetails {
     @OneToMany(targetEntity = VendorRating.class, fetch = FetchType.LAZY, mappedBy = "customer")
     private List<VendorRating> ratingsCustomer;
 
-    // *Relacion de User a VendorRating (vendor)
+    // * Relacion de User a VendorRating (vendor)
     @JsonIgnore
     @OneToMany(targetEntity = VendorRating.class, fetch = FetchType.LAZY, mappedBy = "vendor")
     private List<VendorRating> ratingsVendor;
+
+    // * Relacion de User a PurchaseOrder
+    @JsonIgnore
+    @OneToMany(targetEntity = PurchaseOrder.class, fetch = FetchType.LAZY, mappedBy = "customer")
+    private List<PurchaseOrder> purchaseOrders;
 
     // * Make our authorities understand spring
     @Override

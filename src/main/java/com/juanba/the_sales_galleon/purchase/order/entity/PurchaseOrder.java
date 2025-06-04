@@ -31,7 +31,10 @@ public class PurchaseOrder {
     @Column(name = "creation_date_po")
     private LocalDate creationDate;
 
-    @Column(name = "id_customer_po")
+    // * Relacion de PurchaseOrder a User
+    @JsonIgnore
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(name = "id_customer_po")
     private User customer;
 
     @Column(name = "shipping_address_po")

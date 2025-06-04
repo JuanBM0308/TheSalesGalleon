@@ -80,7 +80,12 @@ public class HttpSecurityConfig {
                     authConfig.requestMatchers(HttpMethod.DELETE, "/purchase-details/api/delete/{id}").hasRole(Role.ADMINISTRATOR.name());
                     authConfig.requestMatchers(HttpMethod.PUT, "/purchase-details/api/update").hasRole(Role.ADMINISTRATOR.name());
 
-
+                    // ? PurchaseOrder controller
+                    authConfig.requestMatchers(HttpMethod.GET, "/purchase-orders/api/find-purchase-order/{id}").hasAnyRole(Role.ADMINISTRATOR.name(), Role.CUSTOMER.name(), Role.VENDOR.name());
+                    authConfig.requestMatchers(HttpMethod.GET, "/purchase-orders/api/list-purchase-orders").hasAnyRole(Role.ADMINISTRATOR.name(), Role.CUSTOMER.name(), Role.VENDOR.name());
+                    authConfig.requestMatchers(HttpMethod.POST, "/purchase-orders/api/create").hasAnyRole(Role.ADMINISTRATOR.name(), Role.CUSTOMER.name());
+                    authConfig.requestMatchers(HttpMethod.PUT, "/purchase-orders/api/update").hasRole(Role.ADMINISTRATOR.name());
+                    authConfig.requestMatchers(HttpMethod.DELETE, "/purchase-orders/api/delete/{id}").hasRole(Role.ADMINISTRATOR.name());
 
                     // * Any request deny all
                     authConfig.anyRequest().denyAll();
