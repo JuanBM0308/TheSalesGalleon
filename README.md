@@ -25,6 +25,8 @@ Welcome aboard **The Sales Galleon**, the API where first and second-hand discou
 
 **Hoist the sails and navigate towards a world of epic discounts with The Sales Galleon!** 🛒
 
+**Documentation: http://localhost:8080/swagger-ui/index.html**
+
 -----
 
 # 🏴‍☠️ ¡El Galeón de las Rebajas! 💰
@@ -53,3 +55,5 @@ Welcome aboard **The Sales Galleon**, the API where first and second-hand discou
 * ¡Desplegando el mapa! Documentación API detallada para que cada desarrollador sea un capitán experto.
 
 **¡Icen las velas y naveguen hacia un mundo de descuentos épicos con El Galeón de las Rebajas!** 🛒
+
+**Documentación: http://localhost:8080/swagger-ui/index.html**

@@ -38,6 +38,12 @@ public class HttpSecurityConfig {
                     authConfig.requestMatchers(HttpMethod.POST, "/auth/authenticate").permitAll();
                     authConfig.requestMatchers("/error").permitAll();
 
+                    // ! SWAGGER UI AND OPENAPI DOCS
+                    authConfig.requestMatchers("/swagger-ui.html").permitAll();
+                    authConfig.requestMatchers("/swagger-ui/**").permitAll();
+                    authConfig.requestMatchers("/v3/api-docs/**").permitAll();
+                    authConfig.requestMatchers("/webjars/**").permitAll();
+
                     // ? Product controller
                     authConfig.requestMatchers(HttpMethod.GET, "/products/api/list-products").hasAuthority(Permission.READ_ALL_PRODUCTS.name());
                     authConfig.requestMatchers(HttpMethod.GET, "/products/api/find-product/{id}").hasAuthority(Permission.FIND_PRODUCT.name());
