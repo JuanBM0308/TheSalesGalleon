@@ -6,12 +6,15 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - DB_URL=db_the_sales_galleon
+      - DB_HOST=db
+      - DB_NAME=db_the_sales_galleon
       - DB_USERNAME=JuanBM
       - DB_PASSWORD=juanbm
+      - JWT_EXPIRATION_MINUTES=60
+      - JWT_SECRET_KEY=WUhVOEpJSFIySTJKbU44NzZ1ek5FRmxvQzlHQkhKeHZlcGI3U3RaZnBSOHdVa2txdHQ=
     depends_on:
-      - localhost
-  localhost:
+      - db
+  db:
     container_name: db_the_sales_galleon
     image: postgres:17.4
     ports:

@@ -32,5 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 
-### Email ###
+### Docker ###
 email.properties
+dockerfile
+docker-compose.yml

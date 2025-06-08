@@ -18,7 +18,7 @@ public class SwaggerConfig {
                         .title("The sales galleon API")
                         .version(appVersion)
                         .description("""
-                                The Sales Galleon is a product and sales management application built with Spring Boot 3.5.0 and Java 24. Its core purpose is to provide a robust platform for managing a wide catalog of products, users (with defined roles and permissions), categories, and the comprehensive handling of purchase orders and their details.
+                                The Sales Galleon is a product and sales management application built with Spring Boot 3.4.5 and Java 24. Its core purpose is to provide a robust platform for managing a wide catalog of products, users (with defined roles and permissions), categories, and the comprehensive handling of purchase orders and their details.
                                 
                                 The project incorporates key features of a modern enterprise application:
                                 
